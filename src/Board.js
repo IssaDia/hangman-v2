@@ -1,40 +1,37 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
-    selector,
-    useRecoilState
+    atom,
+    useRecoilState,
   } from 'recoil'
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
-  export const usedLettersArray = selector({
-    key: 'usedLettersArray',
-    get: (selectedLetter)  => {
-        let lettersArray = []
-        lettersArray.push(selectedLetter)
-        return lettersArray
-    } ,
+
+  export const lettersState = atom({
+    key: 'letters',
+    default: [],
   });
 
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-console.log(LETTERS);
 export default function Board() {
 
-    const [selectedLetter, setselectedLetter] = useState();
+    const [selectedLetter, setselectedLetter] = useRecoilState(lettersState);
 
-    
     const clickedLetter = (e, letter) => {
-       setselectedLetter(letter);
+
+       setselectedLetter(oldArray => [...oldArray, letter]);
         e.target.style.color = 'grey';
        
     }
 
 
-
     let board = LETTERS.map((letter, index) => {
-       return  <button key={index} onClick={(e)=>clickedLetter(e,letter)}>{letter}</button>
+       return  <button key={index} className = "pulse" value={letter} onClick={(e)=>clickedLetter(e,letter)}>{letter}</button>
     })
     return (
-     <>
-     {board}
-     </>
+        <div className='keyboard'>
+        {board}
+        </div>
     )
 }

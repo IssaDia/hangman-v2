@@ -1,0 +1,78 @@
+body {
+    color: #fff;
+   /* background-image: url(/images/background.jpg); */
+    background-size: cover;
+    font: 300 1em 'Fira Sans', sans-serif;
+  }
+  .content {
+  
+    text-align: center;
+  }
+  
+  h1 {
+    margin: auto;
+    margin-top: 60px;
+    color: antiquewhite;
+    font-weight: 400;
+  }
+  
+  .game {
+  
+    font-size: 60px;
+    margin: auto;
+    margin-top: 60px;
+  }
+  
+  button {
+  
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin:0.5em;
+    padding: 1em 2em;
+  
+    
+  }
+  
+  .keyboard {
+  
+    margin: auto;
+    margin-top: 60px;
+  }
+// Button effect
+
+
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+  hover: #ef8f6e;
+}
+
+/*
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  
+  pulse: #ef6eae
+ 
+);
+
+.pulse {
+    color: #ef6eae;
+    background-color: black;
+   
+}
+
+@each $button, $color in $colors {
+    .#{$button} {
+      --color: #{$color};
+      --hover: #{adjust-hue($color, 45deg)};
+    }
+  }
+
+  */
